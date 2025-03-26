@@ -1,0 +1,84 @@
+int	create_list(char **argv, t_node **list)
+{
+	t_node	*node;
+	long 	number;
+
+	node = NULL;
+	/*Tester chaques string voir si lenght == 1 si non exit*/
+	while (*argv)
+	{
+		if (!(ft_isdigitsign(*argv)))
+		{
+			//printf("ok");
+			//free_list(list);
+			return (1);
+		}
+			//return (1);
+		number = ft_atol(*argv); // probleme signe
+		//printf("Number : %ld\n", number);
+		if(number > 2147483647 || number < -2147483648)
+			return(1);
+		node = create_node(number); // Argv Dog ->  0
+		/*if(node ->data > 2147483647 || node->data < -2147483648)
+		{
+			frr
+		}
+		*/
+		//printf("Node data : %d ", node->data);
+		//printf("Argv : %s\n", *argv);
+		if (!node)
+			return (1);
+		if (!*list)
+		{
+			*list = node;
+
+		}
+		else
+		{
+			if(add_node(*list, node))
+			{
+				return (1);
+			}
+			/*
+			if(!add_node(*list, node))
+				return (1);
+				*/
+		}
+		argv++;
+
+	}
+	//printf("OK");
+	return (0);
+}
+
+gpt inverse arg
+
+int create_list(char **argv, t_node **list)
+{
+    t_node *new_node;
+    int i;
+    int len;
+
+    len = 0;
+    while (argv[len])
+        len++;
+
+    // Parcourir les arguments en SENS INVERSE
+    i = len - 1;
+    while (i >= 0)
+    {
+        if (!ft_isalnum(*argv[i]))
+            return (1);
+        if (ft_atol(argv[i]) > INT_MAX || ft_atol(argv[i]) < INT_MIN)
+            return (1);
+        new_node = create_node(ft_atol(argv[i]));
+        if (!new_node)
+            return (1);
+        if (!*list)
+            *list = new_node;
+        else
+            add_node(*list, new_node);
+        i--;
+    }
+    return (0);
+}

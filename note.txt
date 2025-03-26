@@ -1,0 +1,6 @@
+But trouver le max et le decqler vers la pile ensuite push sur b
+Parcourir toute la liste trouver le max le décaler jusqu a la pile
+Pas coter sur la complexiter de l'algo mais le nombres d'instructions 
+Implementer des algo triviaux pour des petites listes <= 5 (Solution Naive)
+Quicksort ou radix faire des petits sous-ensembles
+
