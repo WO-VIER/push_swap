@@ -12,16 +12,20 @@
 
 #include "push_swap.h"
 
-int	swap(t_node **stack)
+int swap(t_node **stack)
 {
-	if (lst_lenght(*stack) < 2)
-		return (0);
-	(*stack)->prev = (*stack)->next;
-	(*stack)->next = (*stack)->prev->next;
-	(*stack)->prev->next = *stack;
-	(*stack) = (*stack)->prev;
-	(*stack)->prev = NULL; 
+	int len;
 
+	len = lst_lenght(*stack);
+	if(!*stack || !stack || len == 1)
+		return (1);
+	*stack = (*stack)->next;
+	(*stack)->prev->prev = *stack;
+	(*stack)->prev->next = (*stack)->next;
+	if ((*stack)->next)
+		(*stack)->next->prev = (*stack)->prev;
+	(*stack)->next = (*stack)->prev;
+	(*stack)->prev = NULL;
 	return (0);
 }
 

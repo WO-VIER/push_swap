@@ -52,6 +52,14 @@ int	main(int argc, char **argv)
 
 	if(!is_sorted(list))
 	{
+
+		//afficher_list_null(list);
+		/*
+		set_min(&list);
+		afficher_list_null(list);
+		free_list(&list);
+		exit(1);
+		*/
 		set_min(&list);
 		if(lst_lenght(list) == 2)
 			sa(&list,1);
@@ -59,6 +67,7 @@ int	main(int argc, char **argv)
 			sort_tree(&list);
 		else
 			algo(&list, &stackb);
+		afficher_list_null(list);
 		free_list(&list);
 	}
 	// acceder aux index de la liste
@@ -77,7 +86,7 @@ int	main(int argc, char **argv)
 	//(&list, &stackb);
 	//min_max_100_improved(&list, &stackb);
 	//algo(&list, &stackb);
-	printf("Lst_lenght : %d\n",lst_lenght(list));
+	//printf("Lst_lenght : %d\n",lst_lenght(list));
 	afficher_list_null(stackb);
 	afficher_list_null(list);
 	//printf("Sizeof %d\n", sizeof(t_node));

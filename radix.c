@@ -314,7 +314,7 @@ void final_rotate(t_node **stack, t_node *top_node, char c)
 				ra(stack, 1);
 			else
 			{
-				printf("Stack data finale rotate: %d\n", (*stack)->data);
+				//printf("Stack data finale rotate: %d\n", (*stack)->data);
 				rra(stack, 1);
 			}
 		}
@@ -457,7 +457,7 @@ void algo(t_node **stacka, t_node **stackb)
 	else
 		while(*stacka != smallest)
 		{
-			printf("Stacka data fin : %d\n", (*stacka)->data);
+			//printf("Stacka data fin : %d\n", (*stacka)->data);
 			rra(stacka, 1);
 		}
 }
