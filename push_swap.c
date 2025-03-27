@@ -33,7 +33,6 @@ int	main(int argc, char **argv)
 		return (error_handler(NULL, NULL));
 	if (argc == 2)
 	{
-		// Réduire la gestion faire
 		split_argv = ft_split(argv[1], ' ');
 		if (!split_argv || create_list(split_argv, &list))
 			return (error_handler(split_argv, list));
@@ -52,14 +51,6 @@ int	main(int argc, char **argv)
 
 	if(!is_sorted(list))
 	{
-
-		//afficher_list_null(list);
-		/*
-		set_min(&list);
-		afficher_list_null(list);
-		free_list(&list);
-		exit(1);
-		*/
 		set_min(&list);
 		if(lst_lenght(list) == 2)
 			sa(&list,1);
@@ -70,75 +61,6 @@ int	main(int argc, char **argv)
 		afficher_list_null(list);
 		free_list(&list);
 	}
-	// acceder aux index de la liste
-	// printf("Node data : %d\n", list->data);
-	// printf("Node data : %d\n", list->next->data);
-	// printf("Node data : %d\n", list->next->next->data);
-	//set_min(&list);
-	//insertion_sort(&list, &stackb);
-	//afficher_list_null(list);
-	//sort(&list, &stackb);
-	//radix_sort(&list, &stackb);
-	//butterfly_sort(&list,&stackb);
-	//optimized_sort(&list, &stackb);
-	//cost_optimized_sort(&list, &stackb);
-	//sort(&list, &stackb);
-	//(&list, &stackb);
-	//min_max_100_improved(&list, &stackb);
-	//algo(&list, &stackb);
-	//printf("Lst_lenght : %d\n",lst_lenght(list));
-	afficher_list_null(stackb);
-	afficher_list_null(list);
-	//printf("Sizeof %d\n", sizeof(t_node));
-	//printf("Lst_lenght : %d",lst_lenght(list));
-	//chunk_sort(&list, &stackb);
-	//afficher_list_null(list);
-	//int i = is_sorted(list);
-	//printf("Is sorted : %d\n", i);
-	/*
-	push(&stackb,&list);
-	push(&stackb,&list);
-	push(&stackb,&list);
-
-	pb(&list, &stackb);
-	pa(&list, &stackb);
 	
-	afficher_list_null(list);
-	rra(&list,1);
-	rra(&list,1);
-	*/
-
-	//rra(&list,1);
-	//afficher_list_null(list);
-	//rra(&list, 1);
-	//radix_sort(&list, &stackb);
-	//afficher_list(list,0);
-	//afficher_list_classic(list);
-	//afficher_list_null(list);
-	//afficher_list_null(stackb);
-	/*	
-	find_min(&list);
-	afficher_list(list,1);
-	
-	pb(&list, &stackb);
-	afficher_list(list,1);
-	afficher_list(stackb,0);
-	pa(&list, &stackb);
-	afficher_list(list,1);
-	afficher_list(stackb,0);
-	rra(&list,1);
-	afficher_list(list,1);
-	ra(&list,1);
-	afficher_list(list,1);
-	sa(&list,1);
-	afficher_list(list,1);
-	pb(&list, &stackb);
-	afficher_list(list,1);
-	afficher_list(stackb,0);
-	//printf("Node 0 %d", list->data);
-	*/
-
-
-
 	return (0);
 }
