@@ -61,7 +61,7 @@ int ss(t_node **stack, t_node **stackb)
 
 int push(t_node **dst, t_node **src)
 {
-    if (!src || !*src)
+    if (!*src)
         return (1);
 	if(!*dst)
 	{
@@ -87,7 +87,7 @@ int	pb(t_node **stacka, t_node **stackb)
 {
 	if(push(stackb, stacka))
 		return (1);
-	write(1,"pb\n",4);
+	write(1,"pb\n",3);
 	return (0);
 }
 
@@ -95,7 +95,7 @@ int	pa(t_node **stacka, t_node **stackb)
 {
 	if(push(stacka, stackb))
 		return (1);
-	write(1,"pa\n",4);
+	write(1,"pa\n",3);
 	return (0);
 }
 
@@ -172,8 +172,6 @@ int rra(t_node **stacka,int flag)
 {
 	if(rrotate(stacka))
 		return(1);
-	if(flag == 3)
-		write(1,"ra\n",3);
 	if(flag == 1)
 		write(1,"rra\n",4);
 	return(0);

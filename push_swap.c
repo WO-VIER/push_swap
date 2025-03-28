@@ -24,42 +24,52 @@
 int	main(int argc, char **argv)
 {
 	char **split_argv;
-	t_node *list;
+	t_node *stacka;
 	t_node *stackb;
 
-	list = NULL;
+	stacka = NULL;
 	stackb = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
-		return (error_handler(NULL, NULL));
-	if (argc == 2)
+		return (1);
+	if (argc == 2) //Format Nécessitant split "1 2 3 5" un 2 arg ./push_swap et la chainne
 	{
 		split_argv = ft_split(argv[1], ' ');
-		if (!split_argv || create_list(split_argv, &list))
-			return (error_handler(split_argv, list));
+		if (!split_argv || create_list(split_argv, &stacka))
+			return (error_handler(split_argv, &stacka));
 		if (handle_duplicate(split_argv, NULL))
-			return (error_handler(split_argv, list));
+			return (error_handler(split_argv, &stacka));
 		free_split(split_argv);
 	}
-	else
+	else //Format 3 5 6 7 
 	{
-		if (create_list(++argv, &list))
-			return (error_handler(NULL, list));
-		if (handle_duplicate(NULL, list))
-			return (error_handler(NULL, list));
-		//create_stackb(list, &stackb);
+		if (create_list(++argv, &stacka))
+			return (error_handler(NULL, &stacka));
+		if (handle_duplicate(NULL, stacka))
+			return (error_handler(NULL, &stacka));
 	}
 
-	if(!is_sorted(list))
+	if(!is_sorted(stacka))
 	{
-		set_min(&list);
-		if(lst_lenght(list) == 2)
-			sa(&list,1);
-		else if(lst_lenght(list) == 3)
-			sort_tree(&list);
+		set_min(&stacka);
+		if(lst_lenght(stacka) == 2)
+			sa(&stacka,1);
+		else if(lst_lenght(stacka) == 3)
+			sort_tree(&stacka);
 		else
-			algo(&list, &stackb);
-		afficher_list_null(list);
-		free_list(&list);
+			push_swap(&stacka, &stackb);
+		/*
+		if(is_sorted(stacka))
+			write(1,"OK\n",3);
+		else
+			write(1,"KO\n",3);
+		*/
+		free_list(&stacka);
+		/*
+		if (stackb)
+			free_list(&stackb);
+		else
+			write(1,"Pas b\n",6);
+		*/
 	}
 	
 	return (0);

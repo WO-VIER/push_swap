@@ -425,7 +425,7 @@ void sort_five(t_node **stacka, t_node **stackb)
 	}
 }
 
-void algo(t_node **stacka, t_node **stackb)
+void push_swap(t_node **stacka, t_node **stackb)
 {
 	t_node *smallest;
 	int lena;
@@ -456,8 +456,5 @@ void algo(t_node **stacka, t_node **stackb)
 			ra(stacka, 1);
 	else
 		while(*stacka != smallest)
-		{
-			//printf("Stacka data fin : %d\n", (*stacka)->data);
 			rra(stacka, 1);
-		}
 }

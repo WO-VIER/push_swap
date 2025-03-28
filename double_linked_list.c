@@ -86,7 +86,7 @@ void free_list(t_node **list)
 	t_node *currentnode;
 	t_node *tmp;
 
-	if(!*list)
+	if(!list)
 		return ;
 	
 	currentnode = *list;

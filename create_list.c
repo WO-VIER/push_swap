@@ -48,36 +48,7 @@ int	create_list(char **argv, t_node **list)
 	}
 	return (0);
 }
-/*
-int	create_stackb(t_node *list, t_node **stackb)
-{
-	int lenght;
-	t_node *currentnode;
 
-	if(!list)
-		return (1);
-	lenght = lst_lenght(list);
-	while(lenght > 0)
-	{
-		currentnode = create_node(0);
-		if (!currentnode)
-			return (1);
-		if (!*stackb)
-		{
-			*stackb = currentnode;
-		}
-		else
-		{
-			if(add_node(*stackb, currentnode))
-				return (1);
-		}
-		lenght--;
-	}
-	
-	//printf("Lst lenghtb : %d\n", lst_lenght(*stackb));
-	return(0);
-}
-*/
 void	free_split(char **split_argv)
 {
 	int	i;
@@ -93,16 +64,14 @@ void	free_split(char **split_argv)
 	split_argv = NULL;
 }
 
-int	error_handler(char **split_argv, t_node *list)
+int	error_handler(char **split_argv, t_node **list)
 {
-	//printf("Jse suis la ");
-	//printf("\nList first node content -> %d",&list->data);
 	if (split_argv)
 		free_split(split_argv);
 	if (list)
-		free_list(&list);
-	write(1, "Error\n", 6);
-	return (1);
+		free_list(list);
+	write(2,"Error\n", 6);
+	exit (1);
 }
 
 int handle_duplicate(char **split_argv, t_node *list)
