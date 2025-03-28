@@ -6,7 +6,7 @@
 /*   By: vwautier <vwautier@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 13:40:48 by vwautier          #+#    #+#             */
-/*   Updated: 2025/03/26 21:55:35 by vwautier         ###   ########.fr       */
+/*   Updated: 2025/03/28 22:33:57 by vwautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,3 +73,4 @@ t_node *find_max(t_node *stack);
 void sort_three(t_node **stacka);
 void sort_five(t_node **stacka, t_node **stackb);
 void push_swap(t_node **stacka, t_node **stackb);
+int create_stack(t_node **stacka, char **argv, int argc);

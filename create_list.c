@@ -6,124 +6,105 @@
 /*   By: vwautier <vwautier@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 23:53:32 by vwautier          #+#    #+#             */
-/*   Updated: 2025/03/26 22:22:10 by vwautier         ###   ########.fr       */
+/*   Updated: 2025/03/28 23:31:49 by vwautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "libft/libft.h"
-#include <limits.h>
 #include "push_swap.h"
-
-int	ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
-}
-
-int	ft_isdigitsign(char *str)
-{
-	if (*str == '-' || *str == '+')
-		str++;
-	while (*str)
-	{
-		if (!ft_isdigit(*str))
-			return (0);
-		str++;
-	}
-	return (1);
-}
-
 
 int	create_list(char **argv, t_node **list)
 {
-	int i;
-	long 	number;
-
+	int		i;
+	long	number;
 
 	while (*argv)
 	{
 		if (!(ft_isdigitsign(*argv)))
 			return (1);
-		number = ft_atol(*argv); // probleme signe
-		//printf("Number : %ld\n", number);
-		if(number > 2147483647 || number < -2147483648)
-			return(1);
-		if(append_node(list, (int)number))
+		number = ft_atol(*argv);
+		if (number > 2147483647 || number < -2147483648)
+			return (1);
+		if (append_node(list, (int)number))
 			return (1);
 		argv++;
 	}
 	return (0);
 }
 
-void	free_split(char **split_argv)
+void	free_list(t_node **list)
 {
-	int	i;
+	t_node	*currentnode;
+	t_node	*tmp;
 
-	i = 0;
-	while (split_argv[i])
+	if (!list)
+		return ;
+	currentnode = *list;
+	while (currentnode)
 	{
-		free(split_argv[i]);
-		split_argv[i] = NULL;
-		i++;
+		tmp = currentnode->next;
+		free(currentnode);
+		currentnode = tmp;
 	}
-	free(split_argv);
+	*list = NULL;
+}
+
+int	create_stack(t_node **stacka, char **argv, int argc)
+{
+	char	**split_argv;
+
 	split_argv = NULL;
-}
-
-int	error_handler(char **split_argv, t_node **list)
-{
-	if (split_argv)
+	if (argc == 2)
+	{
+		split_argv = ft_split(argv[1], ' ');
+		if (!split_argv || create_list(split_argv, stacka))
+			return (error_handler(split_argv, stacka));
+		if (handle_duplicate(split_argv, NULL))
+			return (error_handler(split_argv, stacka));
 		free_split(split_argv);
-	if (list)
-		free_list(list);
-	write(2,"Error\n", 6);
-	exit (1);
+	}
+	else
+	{
+		if (create_list(++argv, stacka))
+			return (error_handler(NULL, stacka));
+		if (handle_duplicate(NULL, *stacka))
+			return (error_handler(NULL, stacka));
+	}
+	return (0);
 }
 
-int handle_duplicate(char **split_argv, t_node *list)
+void	set_min(t_node **list)
 {
-	int i;
-	int j;
-	
-	t_node *currentnodej;
-	t_node *basei;
+	t_node	*currentnodei;
+	t_node	*currentnodej;
+	int		index;
 
-	currentnodej = NULL;
-	basei = NULL;
-	i = 0;
-	// Alerte verifier les signes aussi 
-	/*atoi les chaines et parcourir toute la chaine */
-	if(split_argv && split_argv[i])
+	if (!list || !*list)
+		return ;
+	currentnodei = *list;
+	while (currentnodei)
 	{
-		//printf("Atoi 3 : %d et 5 : %d \n",ft_atoi(split_argv[2]), ft_atoi(split_argv[4]));
-		while(split_argv[i])
+		index = 0;
+		currentnodej = *list;
+		while (currentnodej)
 		{
-			j = 0;
-			while (split_argv[j])
-			{
-				if((ft_atol(split_argv[i]) == ft_atol(split_argv[j])) && i != j)
-					return (1);
-				j++;
-			}
-			i++;
+			if (currentnodej->data < currentnodei->data)
+				index++;
+			currentnodej = currentnodej->next;
 		}
+		currentnodei->index = index;
+		currentnodei = currentnodei->next;
 	}
-	else if(list)
+}
+
+int	is_sorted(t_node *stack)
+{
+	if (!stack)
+		return (1);
+	while (stack->next)
 	{
-		basei = list;
-		while(basei)
-		{
-			currentnodej = basei->next;
-			while(currentnodej)
-			{
-				if(basei->data == currentnodej->data)
-					return (1);
-				currentnodej = currentnodej->next;
-			}
-			basei = basei->next;
-		}
+		if (stack->data > stack->next->data)
+			return (0);
+		stack = stack->next;
 	}
-	//printf("Ok");
-	return (0);
+	return (1);
 }

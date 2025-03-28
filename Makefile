@@ -3,14 +3,22 @@ CC = gcc
 CFLAGS = -g #-Wall -Wextra -Werror
 
 
-# Sources
-SRCS = push_swap.c \
-    create_list.c \
-    double_linked_list.c \
-    instruction.c \
-    radix.c \
-    vue.c \
-    ft_atol.c 
+# Sources ls -1 *.c
+SRCS = create_list.c \
+double_linked_list.c \
+double_linked_list_util.c \
+error_util.c \
+move_sort.c \
+node_routine.c \
+push.c \
+push_swap.c \
+radix.c \
+rotate.c \
+rrotate.c \
+swap.c \
+util.c \
+vue.c
+
 # Objects
 OBJS = $(SRCS:.c=.o)
 
