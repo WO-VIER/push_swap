@@ -6,7 +6,7 @@
 /*   By: vwautier <vwautier@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 13:39:26 by vwautier          #+#    #+#             */
-/*   Updated: 2025/03/26 22:29:16 by vwautier         ###   ########.fr       */
+/*   Updated: 2025/03/28 21:23:28 by vwautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	main(int argc, char **argv)
 		if(lst_lenght(stacka) == 2)
 			sa(&stacka,1);
 		else if(lst_lenght(stacka) == 3)
-			sort_tree(&stacka);
+			sort_three(&stacka);
 		else
 			push_swap(&stacka, &stackb);
 		/*

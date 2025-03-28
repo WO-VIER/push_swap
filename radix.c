@@ -27,146 +27,6 @@ int	is_sorted(t_node *stack)
 	return(1);
 }
 
-int	max_bit(t_node *list)
-{
-	t_node *currentnode;
-	int max;
-	int i;
-
-	max = 0;
-	currentnode = list;
-	while(currentnode)
-	{
-		if(currentnode->index > max)
-			max = currentnode->index;
-		currentnode = currentnode->next;
-	}
-	printf("Le max de la liste : %d \n",max);
-	i = 0;
-	while(max > 0)
-	{
-		max = max >> 1;
-		printf("Bit shift de max : %d\n", max);
-		i++;
-	}
-	
-	return(i);
-}
-
-int	get_max_bits(t_node *list)
-{
-	t_node *head;
-	int		max;
-	int		max_bits;
-
-	head = list;
-	max = -2147483648; // head->index
-	max_bits = 0;
-	while (head)
-	{
-		//printf("Node  data: %d\n", head->data);
-		if (head->index > max)
-			max = head->index;
-		head = head->next;
-		//printf("Node  data: %d\n", head->data);
-	}
-	//printf("Max : %d\n", max);
-	while ((max >> max_bits) != 0)
-		max_bits++;
-	return (max_bits);
-}
-
-
-
-int	radix_sort(t_node **stacka, t_node **stackb)
-{
-	t_node *last;
-	int lenght;
-	int maxbit;
-	int i;
-	int j;
-	if(!*stacka || is_sorted(*stacka))
-		return (1);
-	last = *stacka;
-	lenght = lst_lenght(*stacka);
-	maxbit = get_max_bits(*stacka); 
-	i = 0;
-	while(i < maxbit && !is_sorted(*stacka))
-	{
-		//printf("Lenght : %d\n", lenght);
-		j = 0;
-		while(j++ < lenght && !is_sorted(*stacka))
-		{
-			if(((((*stacka)->index >> i ) & 1) == 1))
-				ra(stacka,1);
-			else
-				pb(stacka,stackb);
-		}
-
-		//sort_stack_b(stacka, stackb, maxbit, i + 1);
-	
-		while(*stackb)
-			pa(stacka,stackb);
-		
-		i++;
-	}
-
-		//pa(stacka,stackb);
-
-	//afficher_list_classic(*stackb);
-
-	return(0);
-}
-int max_index(t_node *stack)
-{
-	int max;
-	max = -1;
-	while(stack)
-	{
-		if(max < stack->index)
-			max = stack->index;
-		stack = stack->next;
-	}
-	return(max);
-}
-int min_index(t_node *stack)
-{
-	int min;
-	
-	min = 2147483647;
-
-	if(!stack)
-		return(0);
-	while(stack)
-	{
-		if(min > stack->index)
-			min = stack->index;
-		stack = stack->next;
-	}
-	return(min);
-}
-
-int find_index(t_node *stack, int max_index)
-{
-	int i;
-
-	if(!stack)
-		return(0);
-	i = 0;
-	while(stack && stack->index != max_index)
-	{
-		stack = stack->next;
-		i++;
-	}
-	return(i);
-}
-int find_last_index(t_node *stack)
-{
-	while(stack->next)
-		stack = stack->next;
-	return(stack->index);
-}
-
 t_node *find_min(t_node *stack)
 {
 	long long min;
@@ -186,7 +46,6 @@ t_node *find_min(t_node *stack)
 	}
 	return(minnode);
 }
-
 void target(t_node *stacka, t_node *stackb)
 {
 	t_node *current;
@@ -393,7 +252,7 @@ t_node *find_max(t_node *stack)
 	return(big);
 }
 
-void sort_tree(t_node **stacka)
+void sort_three(t_node **stacka)
 {
 	t_node *big;
 
@@ -443,7 +302,7 @@ void push_swap(t_node **stacka, t_node **stackb)
 		}
 		
 	}
-	sort_tree(stacka);
+	sort_three(stacka);
 	while(*stackb)
 	{
 		node_routine(*stacka, *stackb);

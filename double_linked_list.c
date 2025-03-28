@@ -116,26 +116,6 @@ int lst_lenght(t_node *list)
 
 	return(i);
 }
-/*
-void find_index(t_node **list)
-{
-	t_node	*currentnodei;
-	t_node	*currentnodej;
-	int		min;	
-	
-	currentnode = *list;
-
-	while(currentnodei)
-	{
-		while(currentnodej)
-		{
-			if(currentnodej->index == -1 && currentnodej->data < min)
-				min = currentnodej->data;
-		}
-		currentnodei = currentnodei->next;
-	}
-}
-*/
 void	set_min(t_node **list)
 {
 	t_node	*currentnodei;
@@ -158,19 +138,4 @@ void	set_min(t_node **list)
 		currentnodei->index = index;
 		currentnodei = currentnodei->next;
 	}
-}
-
-t_node	*last_node_with_content(t_node *list)
-{
-	t_node *currentnode;
-	
-	if(!list)
-		return(NULL);
-
-	currentnode = list;
-	while(currentnode->next && currentnode->index != -1)
-		currentnode = currentnode->next;
-
-	printf("Last Node with content fnt index : %d\n", currentnode->index);
-	return (currentnode);
 }

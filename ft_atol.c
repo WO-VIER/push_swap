@@ -32,15 +32,3 @@ long ft_atol(const char *string)
 		number = (number * 10) + (string[i++] - '0');
 	return (number * csigne);
 }
-/*
-int main (int argc, char **argv)
-{
-	long number;
-
-	
-	if(argc == 1)
-		return(1);
-	number = ft_atol(argv[1]);
-	printf("Atol : %ld", number); //%ld
-	return(0);
-}*/
