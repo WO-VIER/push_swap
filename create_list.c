@@ -6,7 +6,7 @@
 /*   By: vwautier <vwautier@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 23:53:32 by vwautier          #+#    #+#             */
-/*   Updated: 2025/03/28 23:31:49 by vwautier         ###   ########.fr       */
+/*   Updated: 2025/03/29 16:05:28 by vwautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	create_list(char **argv, t_node **list)
 {
-	int		i;
 	long	number;
 
 	while (*argv)
@@ -23,6 +22,8 @@ int	create_list(char **argv, t_node **list)
 			return (1);
 		number = ft_atol(*argv);
 		if (number > 2147483647 || number < -2147483648)
+			return (1);
+		if (handle_duplicate(*list, (int)number))
 			return (1);
 		if (append_node(list, (int)number))
 			return (1);
@@ -58,15 +59,11 @@ int	create_stack(t_node **stacka, char **argv, int argc)
 		split_argv = ft_split(argv[1], ' ');
 		if (!split_argv || create_list(split_argv, stacka))
 			return (error_handler(split_argv, stacka));
-		if (handle_duplicate(split_argv, NULL))
-			return (error_handler(split_argv, stacka));
 		free_split(split_argv);
 	}
 	else
 	{
 		if (create_list(++argv, stacka))
-			return (error_handler(NULL, stacka));
-		if (handle_duplicate(NULL, *stacka))
 			return (error_handler(NULL, stacka));
 	}
 	return (0);

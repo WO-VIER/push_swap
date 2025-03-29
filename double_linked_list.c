@@ -6,7 +6,7 @@
 /*   By: vwautier <vwautier@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 14:02:29 by vwautier          #+#    #+#             */
-/*   Updated: 2025/03/28 23:33:25 by vwautier         ###   ########.fr       */
+/*   Updated: 2025/03/29 16:35:35 by vwautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,21 +59,6 @@ t_node	*last_node(t_node *list)
 	while (list->next)
 		list = list->next;
 	return (list);
-}
-
-int	add_node(t_node **list, t_node *node)
-{
-	t_node	*last;
-
-	if (!list || !node)
-		return (1);
-	last = last_node(*list);
-	if (!last)
-		return (1);
-	last->next = node;
-	node->prev = last;
-	node->next = NULL;
-	return (0);
 }
 
 int	lst_lenght(t_node *list)

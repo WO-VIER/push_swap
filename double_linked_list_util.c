@@ -6,7 +6,7 @@
 /*   By: vwautier <vwautier@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 23:28:06 by vwautier          #+#    #+#             */
-/*   Updated: 2025/03/28 23:32:49 by vwautier         ###   ########.fr       */
+/*   Updated: 2025/03/29 16:07:08 by vwautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 t_node	*find_min(t_node *stack)
 {
-	long	min;
-	t_node	*minnode;
+	long long	min;
+	t_node		*minnode;
 
 	if (!stack)
 		return (NULL);
-	min = LONG_MAX;
+	min = LLONG_MAX;
 	while (stack)
 	{
 		if (stack->data < min)
@@ -40,7 +40,7 @@ t_node	*find_max(t_node *stack)
 	if (!stack)
 		return (NULL);
 	big = stack;
-	max = INT_MAX;
+	max = INT_MIN;
 	while (stack)
 	{
 		if (stack->data > max)

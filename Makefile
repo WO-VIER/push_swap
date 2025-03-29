@@ -1,7 +1,18 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: vwautier <vwautier@student.s19.be>         +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/03/29 15:57:20 by vwautier          #+#    #+#              #
+#    Updated: 2025/03/29 16:48:49 by vwautier         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = push_swap
 CC = gcc
-CFLAGS = -g #-Wall -Wextra -Werror
-
+CFLAGS = -Wall -Werror -Wextra
 
 # Sources ls -1 *.c
 SRCS = create_list.c \
@@ -12,53 +23,32 @@ move_sort.c \
 node_routine.c \
 push.c \
 push_swap.c \
-radix.c \
+algo.c \
 rotate.c \
 rrotate.c \
 swap.c \
 util.c \
-vue.c
+vue.c \
+ft_split.c
 
-# Objects
+
 OBJS = $(SRCS:.c=.o)
 
-# Libft
-LIBFT_DIR = libft
-LIBFT = $(LIBFT_DIR)/libft.a
-INCLUDES = -I. -I$(LIBFT_DIR)
+all : $(NAME)
 
-# Rules
-all: $(LIBFT) $(NAME)
+$(NAME) : $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $@
 
-$(LIBFT):
-	$(MAKE) -C $(LIBFT_DIR)
+%.o : %.c push_swap.h
+	$(CC) $(CFLAGS) -c $< -o $@ 
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -L$(LIBFT_DIR) -lft -o $(NAME)
-
-%.o: %.c
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-
-clean:
-	$(MAKE) -C $(LIBFT_DIR) clean
+clean :
 	rm -f $(OBJS)
 
-fclean: clean
-	$(MAKE) -C $(LIBFT_DIR) fclean
+fclean : clean
 	rm -f $(NAME)
+	
 
-re: fclean all
-debug: CFLAGS += -g -fsanitize=address
-debug: all
-sanitize: CFLAGS += -g -fsanitize=address
-sanitize: $(LIBFT) $(NAME)
+re : fclean all
 
-sanitize-no-flags: CFLAGS = -g -fsanitize=address
-sanitize-no-flags: $(LIBFT) $(NAME)
-
-
-re-sanitize: fclean sanitize
-
-re-sanitize-no-flags: fclean sanitize-no-flags
-
-.PHONY: all clean fclean re debug sanitize sanitize-no-flags re-sanitize re-sanitize-no-flags
+.PHONY : all clean fclean re

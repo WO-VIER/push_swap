@@ -3,7 +3,7 @@ Push-Swap-Tester/
 
 push_swap
 a.out
-
+*.txt
 *.o
 *.a
 *.so

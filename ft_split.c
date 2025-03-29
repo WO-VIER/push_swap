@@ -6,13 +6,13 @@
 /*   By: vwautier <vwautier@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 17:34:32 by vwautier          #+#    #+#             */
-/*   Updated: 2024/11/02 13:17:27 by vwautier         ###   ########.fr       */
+/*   Updated: 2025/03/29 15:56:57 by vwautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-static int	mallocverif(char **strArray, size_t strlen, int position)
+int	mallocverif(char **strArray, size_t strlen, int position)
 {
 	int	i;
 
@@ -28,7 +28,7 @@ static int	mallocverif(char **strArray, size_t strlen, int position)
 	return (0);
 }
 
-static size_t	cont_word(char const *s, char c)
+size_t	cont_word(char const *s, char c)
 {
 	size_t	word;
 	char	inword;
@@ -52,7 +52,7 @@ static size_t	cont_word(char const *s, char c)
 	return (word);
 }
 
-static int	populate(char const *s, char c, char **strArray)
+int	populate(char const *s, char c, char **strArray)
 {
 	size_t	strlen;
 	int		i;
@@ -97,74 +97,3 @@ char	**ft_split(char const *s, char c)
 	}
 	return (strarray);
 }
-
-/*
-int main()
-{
-	char **str;
-	str = ft_split("   Hello je suis la ", ' ');
-	while(*str)
-		printf("%s\n",*str++);
-	return 0;
-}
-
-static int	creationstring(char const *s, char c, char **strArray)
-{
-	size_t	i;
-	size_t	strlen;
-	size_t	index;
-
-	i = 0;
-	strlen = 0;
-	index = 0;
-	while (s[i])
-	{
-		if (s[i] != c)
-			strlen++;
-		else if (strlen > 0)
-		{
-			strArray[index] = malloc(strlen * sizeof(char));
-			if (!strArray[index])
-				return (-1);
-			strArray[index++][strlen] = '\0';
-			strlen = 0;
-		}
-		i++;
-	}
-	if (strlen > 0)
-	{
-		strArray[index] = malloc((strlen + 1) * sizeof(char));
-		if (!strArray[index])
-			return (-1);
-        strArray[index][strlen] = '\0'; 
-    }
-	return (0);
-}*/
-/*
-static void populateTab(char const *s, char c , char **strArray)
-{
-	int i;
-	int j;
-	int index;
-
-	i = 0;
-	j = 0;
-	index = 0;
-	while (s[i])
-	{
-		if (s[i] == c)
-		{
-			index++;
-			j = 0;
-			i++;
-		}
-		else
-		{
-			strArray[index][j] = s[i];
-			i++;
-			j++;
-		}
-	}
-	
-}
-*/

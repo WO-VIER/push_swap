@@ -6,11 +6,10 @@
 /*   By: vwautier <vwautier@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 13:39:26 by vwautier          #+#    #+#             */
-/*   Updated: 2025/03/28 22:34:26 by vwautier         ###   ########.fr       */
+/*   Updated: 2025/03/29 16:52:57 by vwautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "push_swap.h"
 
 int	main(int argc, char **argv)
@@ -32,6 +31,7 @@ int	main(int argc, char **argv)
 			sort_three(&stacka);
 		else
 			push_swap(&stacka, &stackb);
+		afficher_list_null(stacka);
 		free_list(&stacka);
 		free_list(&stackb);
 	}

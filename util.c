@@ -6,11 +6,37 @@
 /*   By: vwautier <vwautier@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 22:39:54 by vwautier          #+#    #+#             */
-/*   Updated: 2025/03/28 23:23:51 by vwautier         ###   ########.fr       */
+/*   Updated: 2025/03/29 16:02:17 by vwautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+size_t	ft_strlen(const char *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+{
+	size_t	i;
+
+	if (size == 0)
+		return (ft_strlen(src));
+	i = 0;
+	while (src[i] && i < size - 1)
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (ft_strlen(src));
+}
 
 int	ft_isdigit(int c)
 {
@@ -19,7 +45,7 @@ int	ft_isdigit(int c)
 	return (0);
 }
 
-long ft_atol(const char *string)
+long	ft_atol(const char *string)
 {
 	int		csigne;
 	long	number;
@@ -51,19 +77,4 @@ int	ft_isdigitsign(char *str)
 		str++;
 	}
 	return (1);
-}
-
-void	free_split(char **split_argv)
-{
-	int	i;
-
-	i = 0;
-	while (split_argv[i])
-	{
-		free(split_argv[i]);
-		split_argv[i] = NULL;
-		i++;
-	}
-	free(split_argv);
-	split_argv = NULL;
 }
