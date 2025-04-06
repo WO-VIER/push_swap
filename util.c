@@ -6,7 +6,7 @@
 /*   By: vwautier <vwautier@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 22:39:54 by vwautier          #+#    #+#             */
-/*   Updated: 2025/04/06 15:36:58 by vwautier         ###   ########.fr       */
+/*   Updated: 2025/04/06 22:04:29 by vwautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,13 +68,23 @@ long	ft_atol(const char *string)
 
 int	ft_isdigitsign(char *str)
 {
-	if (*str == '-' || *str == '+')
-		str++;
-	while (*str)
+	int	i;
+	int	digit;
+
+	i = 0;
+	digit = 0;
+	if (!str || !*str)
+		return (0);
+	if (str[0] == '-' || str[0] == '+')
+		i++;
+	if (!str[i])
+		return (0);
+	while (str[i])
 	{
-		if (!ft_isdigit(*str))
+		if (!ft_isdigit(str[i]))
 			return (0);
-		str++;
+		digit = 1;
+		i++;
 	}
-	return (1);
+	return (digit);
 }

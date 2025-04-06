@@ -6,7 +6,7 @@
 /*   By: vwautier <vwautier@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 23:53:32 by vwautier          #+#    #+#             */
-/*   Updated: 2025/04/06 15:39:02 by vwautier         ###   ########.fr       */
+/*   Updated: 2025/04/06 22:02:22 by vwautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	create_stack(t_node **stacka, char **argv, int argc)
 	if (argc == 2)
 	{
 		split_argv = ft_split(argv[1], ' ');
-		if (!split_argv || create_list(split_argv, stacka))
+		if (!split_argv || !split_argv[0] || create_list(split_argv, stacka))
 			return (error_handler(split_argv, stacka));
 		free_split(split_argv);
 	}

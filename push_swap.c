@@ -6,7 +6,7 @@
 /*   By: vwautier <vwautier@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 13:39:26 by vwautier          #+#    #+#             */
-/*   Updated: 2025/04/06 21:26:41 by vwautier         ###   ########.fr       */
+/*   Updated: 2025/04/06 21:51:00 by vwautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(int argc, char **argv)
 	stacka = NULL;
 	stackb = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
-		return (1);
+		return (error_handler(NULL, NULL));
 	create_stack(&stacka, argv, argc);
 	if (!is_sorted(stacka))
 	{
