@@ -6,13 +6,13 @@
 /*   By: vwautier <vwautier@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 23:53:32 by vwautier          #+#    #+#             */
-/*   Updated: 2025/03/29 16:05:28 by vwautier         ###   ########.fr       */
+/*   Updated: 2025/04/06 15:39:02 by vwautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	create_list(char **argv, t_node **list)
+static int	create_list(char **argv, t_node **list)
 {
 	long	number;
 

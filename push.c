@@ -6,13 +6,13 @@
 /*   By: vwautier <vwautier@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 22:47:21 by vwautier          #+#    #+#             */
-/*   Updated: 2025/03/29 16:04:58 by vwautier         ###   ########.fr       */
+/*   Updated: 2025/04/06 15:37:17 by vwautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	push(t_node **dst, t_node **src)
+static int	push(t_node **dst, t_node **src)
 {
 	if (!*src)
 		return (1);

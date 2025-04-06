@@ -6,7 +6,7 @@
 /*   By: vwautier <vwautier@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 13:39:26 by vwautier          #+#    #+#             */
-/*   Updated: 2025/03/29 16:52:57 by vwautier         ###   ########.fr       */
+/*   Updated: 2025/04/06 15:37:27 by vwautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int	main(int argc, char **argv)
 			sort_three(&stacka);
 		else
 			push_swap(&stacka, &stackb);
-		afficher_list_null(stacka);
 		free_list(&stacka);
 		free_list(&stackb);
 	}

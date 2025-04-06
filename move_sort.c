@@ -6,13 +6,13 @@
 /*   By: vwautier <vwautier@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 23:26:15 by vwautier          #+#    #+#             */
-/*   Updated: 2025/03/29 15:37:09 by vwautier         ###   ########.fr       */
+/*   Updated: 2025/04/06 15:38:34 by vwautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate_top(t_node **stacka, t_node **stackb, t_node *cheapest)
+static void	rotate_top(t_node **stacka, t_node **stackb, t_node *cheapest)
 {
 	while (*stacka != cheapest->target && *stackb != cheapest)
 		rr(stacka, stackb);
@@ -20,7 +20,7 @@ void	rotate_top(t_node **stacka, t_node **stackb, t_node *cheapest)
 	position(*stackb);
 }
 
-void	rrotate_top(t_node **stacka, t_node **stackb, t_node *cheapest)
+static void	rrotate_top(t_node **stacka, t_node **stackb, t_node *cheapest)
 {
 	while (*stacka != cheapest->target && *stackb != cheapest)
 		rrr(stacka, stackb);

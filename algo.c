@@ -6,7 +6,7 @@
 /*   By: vwautier <vwautier@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 16:18:45 by vwautier          #+#    #+#             */
-/*   Updated: 2025/03/29 16:18:59 by vwautier         ###   ########.fr       */
+/*   Updated: 2025/04/06 15:39:08 by vwautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	sort_three(t_node **stacka)
 		sa(stacka, 1);
 }
 
-void	sort_five(t_node **stacka, t_node **stackb)
+static void	sort_five(t_node **stacka, t_node **stackb)
 {
 	int	lena;
 

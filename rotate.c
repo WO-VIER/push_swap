@@ -6,13 +6,13 @@
 /*   By: vwautier <vwautier@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 22:49:23 by vwautier          #+#    #+#             */
-/*   Updated: 2025/03/29 16:00:40 by vwautier         ###   ########.fr       */
+/*   Updated: 2025/04/06 15:37:14 by vwautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	rotate(t_node **stack)
+static int	rotate(t_node **stack)
 {
 	t_node	*last;
 	t_node	*tmp;

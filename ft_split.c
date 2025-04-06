@@ -6,13 +6,13 @@
 /*   By: vwautier <vwautier@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 17:34:32 by vwautier          #+#    #+#             */
-/*   Updated: 2025/03/29 15:56:57 by vwautier         ###   ########.fr       */
+/*   Updated: 2025/04/06 15:38:45 by vwautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	mallocverif(char **strArray, size_t strlen, int position)
+static int	mallocverif(char **strArray, size_t strlen, int position)
 {
 	int	i;
 
@@ -28,7 +28,7 @@ int	mallocverif(char **strArray, size_t strlen, int position)
 	return (0);
 }
 
-size_t	cont_word(char const *s, char c)
+static size_t	cont_word(char const *s, char c)
 {
 	size_t	word;
 	char	inword;
@@ -52,7 +52,7 @@ size_t	cont_word(char const *s, char c)
 	return (word);
 }
 
-int	populate(char const *s, char c, char **strArray)
+static int	populate(char const *s, char c, char **strArray)
 {
 	size_t	strlen;
 	int		i;

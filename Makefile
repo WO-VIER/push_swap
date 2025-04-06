@@ -6,7 +6,7 @@
 #    By: vwautier <vwautier@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/29 15:57:20 by vwautier          #+#    #+#              #
-#    Updated: 2025/03/29 16:48:49 by vwautier         ###   ########.fr        #
+#    Updated: 2025/04/06 15:39:26 by vwautier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,6 @@ NAME = push_swap
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 
-# Sources ls -1 *.c
 SRCS = create_list.c \
 double_linked_list.c \
 double_linked_list_util.c \
@@ -28,7 +27,6 @@ rotate.c \
 rrotate.c \
 swap.c \
 util.c \
-vue.c \
 ft_split.c
 
 

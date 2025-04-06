@@ -6,13 +6,13 @@
 /*   By: vwautier <vwautier@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 14:02:29 by vwautier          #+#    #+#             */
-/*   Updated: 2025/03/29 16:35:35 by vwautier         ###   ########.fr       */
+/*   Updated: 2025/04/06 15:38:52 by vwautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_node	*create_node(long long data)
+static t_node	*create_node(long long data)
 {
 	t_node	*node;
 

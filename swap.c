@@ -6,13 +6,13 @@
 /*   By: vwautier <vwautier@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 22:48:16 by vwautier          #+#    #+#             */
-/*   Updated: 2025/03/29 16:01:52 by vwautier         ###   ########.fr       */
+/*   Updated: 2025/04/06 15:40:16 by vwautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	swap(t_node **stack)
+static int	swap(t_node **stack)
 {
 	int	len;
 
@@ -38,7 +38,7 @@ int	sa(t_node **stacka, int print)
 	return (0);
 }
 
-int	sb(t_node **stackb, int print)
+static int	sb(t_node **stackb, int print)
 {
 	if (swap(stackb))
 		return (1);
