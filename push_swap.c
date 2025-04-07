@@ -19,7 +19,9 @@ int	main(int argc, char **argv)
 
 	stacka = NULL;
 	stackb = NULL;
-	if (argc == 1 || (argc == 2 && !argv[1][0]))
+	if (argc == 1)
+		return (1);
+	if (argc == 2 && !argv[1][0])
 		return (error_handler(NULL, NULL));
 	create_stack(&stacka, argv, argc);
 	if (!is_sorted(stacka))
